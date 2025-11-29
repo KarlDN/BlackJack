@@ -1,5 +1,9 @@
 let player = {
     name: "Karl",
+    // chips: 250
+}
+
+let credit = {
     chips: 250
 }
 
@@ -12,8 +16,10 @@ let messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el")
 let cardsEl = document.getElementById("cards-el")
 let playerEl = document.getElementById("player-el")
+let creditEl = document.getElementById("credit-el")
 
-playerEl.textContent = player.name + ": 💲" + player.chips
+playerEl.textContent = "Player: " + player.name
+creditEl.textContent ="Credit:" + "💲" + credit.chips
 
 function getRandomCard() {
     let randomNumber = Math.floor( Math.random()*13 ) + 1
@@ -28,6 +34,7 @@ function getRandomCard() {
 
 function startGame() {
     isAlive = true
+    hasBlackJack = false
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
     cards = [firstCard, secondCard]
@@ -45,7 +52,7 @@ function renderGame() {
     if (sum <= 20) {
         message = "Do you want to draw a new card?"
     } else if (sum === 21) {
-        message = "You've got Blackjack!"
+        message = "You've got Blackjack! 🎉"
         hasBlackJack = true
     } else {
         message = "You're out of the game!"
@@ -53,7 +60,6 @@ function renderGame() {
     }
     messageEl.textContent = message
 }
-
 
 function newCard() {
     if (isAlive === true && hasBlackJack === false) {
