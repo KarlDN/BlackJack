@@ -76,6 +76,21 @@ function adjustCredit() {
         credit -= 10
     } if (hasBlackJack === true) {
         credit += 50
+    } if (credit < 0) {
+        credit = 0
+        message = "You're out of credit, press reset to continue!"
+        isAlive = false
     }
+    creditEl.textContent = "Credit:" + "💲" + credit
+    messageEl.textContent = message
+}
+
+function reset() {
+    isAlive = true
+    hasBlackJack = false
+    cards = []
+    sum = ""
+    credit = 250
+    renderGame()
     creditEl.textContent = "Credit:" + "💲" + credit
 }
