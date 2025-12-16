@@ -3,10 +3,10 @@ let player = {
     // chips: 250
 }
 
-let credit = {
-    chips: 250
-}
-
+// let credit = {
+//     chips: 250
+// }
+let credit = 250
 let cards = []
 let sum = 0
 let hasBlackJack = false
@@ -19,7 +19,8 @@ let playerEl = document.getElementById("player-el")
 let creditEl = document.getElementById("credit-el")
 
 playerEl.textContent = "Player: " + player.name
-creditEl.textContent ="Credit:" + "💲" + credit.chips
+creditEl.textContent = "Credit:" + "💲" + credit
+
 
 function getRandomCard() {
     let randomNumber = Math.floor( Math.random()*13 ) + 1
@@ -68,4 +69,9 @@ function newCard() {
         cards.push(card)
         renderGame()        
     }
+}
+
+function adjustCredit() {
+    credit -= 10
+    creditEl.textContent = "Credit:" + "💲" + credit
 }
