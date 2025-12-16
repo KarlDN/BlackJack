@@ -72,6 +72,10 @@ function newCard() {
 }
 
 function adjustCredit() {
-    credit -= 10
+    if (isAlive === true && hasBlackJack === false){
+        credit -= 10
+    } if (hasBlackJack === true) {
+        credit += 50
+    }
     creditEl.textContent = "Credit:" + "💲" + credit
 }
